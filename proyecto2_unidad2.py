@@ -24,18 +24,23 @@ class ventana_inicio:
         self.builder = Gtk.Builder()
         # se selecciona archivo.ui del que se extrae la interfaz
         self.builder.add_from_file("proyecto2.ui")
+
         # se crea ventana principal
         self.ventana = self.builder.get_object("ventana_principal")
         self.ventana.set_default_size(850, 650)
         self.ventana.set_title("archivos")
         self.ventana.connect("destroy", Gtk.main_quit)
 
+        # se crea boton encargado de abrir file chooser
         btn_abrir = self.builder.get_object("btn_abrir")
         btn_abrir.connect("clicked", self.abrir_filechooser)
         btn_abrir.set_label("escoger carpeta")
 
+        # se llama a comboboxtext
         self.seleccion_año = self.builder.get_object("eleccion_año")
 
+        # se llama a treeview y se le asigna que se active 
+        # con un solo click
         self.treeview = self.builder.get_object("tree_view")
         self.treeview.connect("row-activated", self.tree_row_activated)
         self.treeview.set_activate_on_single_click(True)
@@ -51,6 +56,8 @@ class ventana_inicio:
 
         self.ventana.show_all()
 
+    # funcion llama a ventana de dialogo en donde
+    # se muestran los nombres de los creadores
     def ventana_acercad(self, btn=None):
         ventana_acerca = ventana_acercade()
 
@@ -150,20 +157,24 @@ class ventana_inicio:
 # clase ventana de edicion de datos
 class ventanaedit:
     def __init__(self):
+
         self.builder = Gtk.Builder()
         self.builder.add_from_file("proyecto2.ui")
         self.ventanadialogo = self.builder.get_object("ventana_dialogo")
         self.ventanadialogo.set_title("cambiar datos")
 
+        # se crean labels para mostrar id unico
         self.label_id = self.builder.get_object("nombre_id")
         self.label_id.set_label("id unico: ")
         self.id_unico = self.builder.get_object("id_unico")
         self.id_unico.set_label("")
 
+        # se llama a calendario
         self.label_calendar = self.builder.get_object("calendari")
         self.label_calendar.set_label("calendario: ")
         self.calendar = self.builder.get_object("calendario")
 
+        
         self.label_rating = self.builder.get_object("rating")
         self.label_rating.set_label("rating: ")
 
@@ -173,13 +184,16 @@ class ventanaedit:
 
         self.ventanadialogo.show_all()
 
-
+# clase encargada de mostrar ventana de dialogo
+# en donde se muestra nombre de los creadores 
 class ventana_acercade:
     def __init__(self):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("proyecto2.ui")
+        # se abre ventana de dialogo
         self.ventanadialogo = self.builder.get_object("acercade")
         self.ventanadialogo.set_title("Acerca de")
+        # se le asignan los nombres de los creadores al label
         self.label_acerca = self.builder.get_object("acerca_d")
         self.label_acerca.set_label(
             "creadores: \n Denise valdés \n Sebastian Benavides"
