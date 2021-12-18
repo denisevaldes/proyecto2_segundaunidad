@@ -14,7 +14,9 @@ Pasos a seguir :
 		 Ejemplo 1:
 		“carpeta = Path('/home/hp/Programacion 1/Unidad 2/proyecto 2 unidad 2				/archivos1')”  
 
-		lo que hace es crear una carpeta  en la ubicación seleccionada  llamada en este caso “archivo1” la que debería ser modificada  dependiendo de la ubicación 			que el usuario 	quiera entregarle.
+		lo que hace es crear una carpeta  en la ubicación seleccionada  llamada en este caso “archivo1” 
+		la que debería ser modificada  dependiendo de la ubicación
+		que el usuario 	quiera entregarle.
 
 2.-  Abrir  el archivo “Parte2.proyecto2.py”, e inicializar.  
 
